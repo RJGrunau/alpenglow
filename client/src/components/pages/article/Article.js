@@ -1,17 +1,19 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import { Image } from "../../../images/lib_ridge.png";
+import Image from "../../../images/lib_ridge.png";
+import Comments from "../../comment-components/Comments";
 
 const Article = styled.article`
   width: 100%;
-  max-width: 960px;
+  /* max-width: 960px; */
   margin: 50px auto 25px auto;
 `;
 const ArticleContainer = styled.div`
   width: 100%;
   max-width: 960px;
   text-align: left;
+  margin: 0 auto;
 
   > p {
     line-height: 1.5em;
@@ -27,13 +29,12 @@ const ArticleImage = styled.picture`
 `;
 const ArticleImageContainer = styled.div`
   width: 100%;
-  margin: 10px 0 25px 0;
+  margin: 25px 0 25px 0;
 `;
 class ArticlePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      comments: [],
       article: []
     };
   }
@@ -47,27 +48,30 @@ class ArticlePage extends Component {
 
   render() {
     return (
-      <Article>
-        {this.state.article.map(part => (
-          <>
-            <ArticleContainer>
-              <div>
-                <h1 data-testid="title">{part.title}</h1>
-                <div data-testid="author">{part.author}</div>
-                <div data-testid="pub-date">{part.date}</div>
-              </div>
-            </ArticleContainer>
-            <ArticleImageContainer>
-              <ArticleImage>
-                <img src={Image} width="100%" alt="climber on Mt. Rainer" />
-              </ArticleImage>
-            </ArticleImageContainer>
-            <ArticleContainer data-testid="article-text">
-              <p>{part.text}</p>
-            </ArticleContainer>
-          </>
-        ))}
-      </Article>
+      <>
+        <Article>
+          {this.state.article.map(part => (
+            <>
+              <ArticleContainer>
+                <div>
+                  <h1 data-testid="title">{part.title}</h1>
+                  <div data-testid="author">{part.author}</div>
+                  <div data-testid="pub-date">{part.date}</div>
+                </div>
+              </ArticleContainer>
+              <ArticleImageContainer>
+                <ArticleImage>
+                  <img src={Image} width="100%" alt="climber on Mt. Rainer" />
+                </ArticleImage>
+              </ArticleImageContainer>
+              <ArticleContainer data-testid="article-text">
+                <p>{part.text}</p>
+              </ArticleContainer>
+            </>
+          ))}
+        </Article>
+        <Comments />
+      </>
     );
   }
 }

@@ -40,4 +40,6 @@ describe("Comments Test", () => {
     expect(secondCommentAuthor).toBeDefined();
     expect(secondComment).toBeDefined();
   });
+
+  test.skip("It posts a new comment and clears the form", () => {});
 });

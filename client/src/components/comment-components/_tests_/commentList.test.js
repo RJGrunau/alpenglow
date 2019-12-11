@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import CommentList from "../commentList";
+import CommentList from "../CommentList";
 
 describe("Comment List tests", () => {
   test("It renders a list of comments", () => {
