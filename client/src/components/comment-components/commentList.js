@@ -1,12 +1,12 @@
 import React from "react";
-import CommentCard from "./commentCard";
+import CommentCard from "./CommentCard";
 
 const CommentList = ({ comments }) => {
   return (
     <section>
-      {comments.map(comment => (
-        <CommentCard key={comment.id} {...comment} />
-      ))}
+      {comments.map(comment => {
+        <CommentCard key={comment.id} {...comment} />;
+      })}
     </section>
   );
 };
