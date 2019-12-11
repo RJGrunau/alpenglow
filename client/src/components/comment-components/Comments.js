@@ -16,15 +16,15 @@ class Comments extends Component {
   }
 
   componentDidMount() {
-    this.fetchComments();
+    // this.fetchComments();
   }
 
-  fetchComments() {
-    axios
-      .get("/comments")
-      .then(comments => this.setState({ comments }))
-      .catch(console.error);
-  }
+  // fetchComments() {
+  //   axios
+  //     .get("/comments")
+  //     .then(comments => this.setState({ comments }))
+  //     .catch(console.error);
+  // }
   render() {
     const { comments } = this.state;
     return (
