@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Masthead from "./mastead/masthead";
+import SiteNavigation from "./nav/nav";
 
 const Header = styled.header`
   width: 100%;
@@ -19,6 +20,7 @@ const SiteHeader = () => {
     <Header>
       <HeaderContainer>
         <Masthead title={"Alpenglow"} subtitle={"Life in the mountains"} />
+        <SiteNavigation />
       </HeaderContainer>
     </Header>
   );
