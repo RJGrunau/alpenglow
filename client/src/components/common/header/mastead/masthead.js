@@ -1,7 +1,7 @@
 import React from "react";
-import { WordmarkDiv } from "./styled-components/WordmarkDiv";
-import { Subtitle } from "./styled-components/Subtitle";
-import { Brand } from "./styled-components/Brand";
+import { WordmarkDiv } from "../styled-components/WordmarkDiv";
+import { Subtitle } from "../styled-components/Subtitle";
+import { Brand } from "../styled-components/Brand";
 
 const Masthead = ({ title, subtitle }) => {
   return (
