@@ -34,4 +34,6 @@ describe("Comment List tests", () => {
     expect(secondComment).toBeDefined();
     expect(secondAuthor).toBeDefined();
   });
+
+  //what about a test that handles a case where there are no comments?
 });

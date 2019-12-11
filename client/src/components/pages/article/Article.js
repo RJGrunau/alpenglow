@@ -39,10 +39,6 @@ class ArticlePage extends Component {
   }
 
   async componentDidMount() {
-    // axios.get("/comments").then(response => {
-    //   // console.log(response);
-    //   this.setState({ comments: response.data });
-    // });
     axios.get("/article").then(response => {
       console.log(response);
       this.setState({ article: response.data });

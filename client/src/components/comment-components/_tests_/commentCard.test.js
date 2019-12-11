@@ -8,15 +8,15 @@ describe("Comment Card Tests", () => {
     // Arange the test
     const comment = {
       author: "Joe Bob Briggs",
-      commentText: "This story sucks"
+      comment: "This story sucks"
     };
 
     // we're going to use get by text to find both the author and comment
     const { getByText } = render(<CommentCard {...comment} />);
     const author = getByText(comment.author);
-    const commentText = getByText(comment.commentText);
+    const commentText = getByText(comment.comment);
 
     expect(author.textContent).toBe(comment.author);
-    expect(commentText.textContent).toBe(comment.commentText);
+    expect(commentText.textContent).toBe(comment.comment);
   });
 });
