@@ -1,12 +1,35 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import { Image } from "../../../images/lib_ridge.png";
+import { NavItem } from "../../common/header/styled-components/NavItem";
 
+const Article = styled.article`
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+`;
 const ArticleContainer = styled.div`
   width: 100%;
   max-width: 960px;
+  text-align: left;
+
+  > p {
+    line-height: 1.5em;
+    font-size: 18px;
+  }
 `;
-class Article extends Component {
+
+const ArticleImage = styled.picture`
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+`;
+const ArticleImageContainer = styled.div`
+  width: 100%;
+  margin: 10px 0 25px 0;
+`;
+class ArticlePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,19 +51,29 @@ class Article extends Component {
 
   render() {
     return (
-      <>
+      <Article>
         {this.state.article.map(part => (
-          <ArticleContainer>
-            <div>
-              <h1>{part.title}</h1>
-              <div>{part.author}</div>
-              <div>{part.date}</div>
-            </div>
-          </ArticleContainer>
+          <>
+            <ArticleContainer>
+              <div>
+                <h1>{part.title}</h1>
+                <div>{part.author}</div>
+                <div>{part.date}</div>
+              </div>
+            </ArticleContainer>
+            <ArticleImageContainer>
+              <ArticleImage>
+                <img src={Image} width="100%" alt="climber on Mt. Rainer" />
+              </ArticleImage>
+            </ArticleImageContainer>
+            <ArticleContainer>
+              <p>{part.text}</p>
+            </ArticleContainer>
+          </>
         ))}
-      </>
+      </Article>
     );
   }
 }
 
-export default Article;
+export default ArticlePage;
