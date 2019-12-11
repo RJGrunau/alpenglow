@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class Article extends Component {
   constructor(props) {
@@ -9,9 +10,13 @@ class Article extends Component {
   }
 
   componentDidMount() {
-    fetch("/comments")
-      .then(res => res.json())
-      .then(comments => this.setState({ comments }));
+    axios.get("/comments").then(response => {
+      console.log(response);
+      this.setState({ comments: response.data });
+    });
+    // fetch("/comments")
+    //   .then(res => res.json())
+    //   .then(comments => this.setState({ comments }));
   }
 
   render() {
