@@ -8,13 +8,13 @@ describe("Comment List tests", () => {
     const fakeCommentOne = {
       id: 1,
       author: "Chad",
-      commentText:
+      comment:
         "Speaking as man with a daughter I think we need to do a better job ..."
     };
     const fakeCommentTwo = {
       id: 2,
       author: "Meghan",
-      commentText:
+      comment:
         "Chad, if you needed to have a daughter to realize that sexism exits then you ..."
     };
 
@@ -23,9 +23,9 @@ describe("Comment List tests", () => {
     };
 
     const { getByText } = render(<CommentList {...props} />);
-    const firstComment = getByText(fakeCommentOne.commentText);
+    const firstComment = getByText(fakeCommentOne.comment);
     const firstAuthor = getByText(fakeCommentOne.author);
-    const secondComment = getByText(fakeCommentTwo.commentText);
+    const secondComment = getByText(fakeCommentTwo.comment);
     const secondAuthor = getByText(fakeCommentTwo.author);
 
     // we don't care what the specific content of the comment is, just that it is there.
