@@ -22,7 +22,7 @@ class Article extends Component {
   }
 
   render() {
-    return <div>hi</div>;
+    return <div></div>;
   }
 }
 
