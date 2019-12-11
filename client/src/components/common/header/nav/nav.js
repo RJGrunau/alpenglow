@@ -1,22 +1,8 @@
 import React from "react";
-import styled from "styled-components";
+import { NavItem } from "../styled-components/NavItem";
+import { NavList } from "../styled-components/NavList";
+import { Nav } from "../styled-components/Nav.1";
 
-const Nav = styled.nav`
-  grid-row: 2/3;
-  grid-column: 2/3;
-`;
-const NavList = styled.ul`
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-flow: wrap row;
-  justify-content: space-evenly;
-  align-items: center;
-`;
-const NavItem = styled.li`
-  font-style: italic;
-  font-size: 22px;
-`;
 const navItems = [
   { title: "News" },
   { title: "Reviews" },
