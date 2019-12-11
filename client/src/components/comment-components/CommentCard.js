@@ -4,7 +4,7 @@ const CommentCard = ({ ...comment }) => {
   return (
     <div>
       <div>{comment.author}</div>
-      <article>{comment.commentText}</article>
+      <article>{comment.comment}</article>
     </div>
   );
 };

@@ -1,54 +1,43 @@
 import React from "react";
-import {
-  render,
-  fireEvent,
-  wait,
-  cleanup,
-  getByText
-} from "@testing-library/react";
+import { render, fireEvent, wait, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import axios from "axios";
-import Comments from "../Comments";
+import Comments from "../comments";
 
-// mock out the payload
-const fakeCommentOne = {
+const commentOne = {
   id: 1,
-  author: "Chad",
-  commentText:
-    "Speaking as man with a daughter I think we need to do a better job ..."
+  author: "Joe Bob",
+  comment: "Yeah you did a thing so what"
 };
-const fakeCommentTwo = {
+
+const commentTwo = {
   id: 2,
-  author: "Meghan",
-  commentText:
-    "Chad, if you needed to have a daughter to realize that sexism exits then you ..."
+  author: "Melinda Briggs",
+  comment: "This! This 100%"
 };
 
-const comments = [fakeCommentOne, fakeCommentTwo];
+const comments = [commentOne, commentTwo];
 
-describe("Comment Component Test", () => {
+describe("Comments Test", () => {
   afterEach(cleanup);
 
   beforeEach(() => {
     axios.get = jest.fn(() => Promise.resolve(comments));
   });
 
-  test("It fetches Comments and renders them on the page", async () => {
+  test("it Renders a list of Comments", async () => {
     const { getByText } = render(<Comments />);
 
-    // tells the test to stop running until the first comment is loaded
-    await wait(() => getByText(fakeCommentOne.commentText));
+    await wait(() => getByText(commentOne.comment));
 
-    const firstCommentAuthor = getByText(fakeCommentOne.author);
-    const firstCommentText = getByText(fakeCommentOne.commentText);
-    const secondCommentAuthor = getByText(fakeCommentTwo.author);
-    const secondCommentText = getByText(fakeCommentTwo.commentText);
+    const firstCommentAuthor = getByText(commentOne.author);
+    const firstComment = getByText(commentOne.comment);
+    const secondCommentAuthor = getByText(commentTwo.author);
+    const secondComment = getByText(commentTwo.comment);
 
-    expect(firstCommentAuthor.textContent).toBe(fakeCommentOne.author);
-    expect(firstCommentText.textContent).toBe(fakeCommentOne.commentText);
-    expect(secondCommentText.textContent).toBe(fakeCommentTwo.commentText);
-    expect(secondCommentAuthor.textContent).toBe(fakeCommentTwo.author);
+    expect(firstCommentAuthor).toBeDefined();
+    expect(firstComment).toBeDefined();
+    expect(secondCommentAuthor).toBeDefined();
+    expect(secondComment).toBeDefined();
   });
-
-  // Can we write a test for when a story has no comments?
 });
