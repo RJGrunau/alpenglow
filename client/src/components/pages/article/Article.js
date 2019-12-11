@@ -2,12 +2,11 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { Image } from "../../../images/lib_ridge.png";
-import { NavItem } from "../../common/header/styled-components/NavItem";
 
 const Article = styled.article`
   width: 100%;
   max-width: 960px;
-  margin: 0 auto;
+  margin: 50px auto 25px auto;
 `;
 const ArticleContainer = styled.div`
   width: 100%;
@@ -17,6 +16,7 @@ const ArticleContainer = styled.div`
   > p {
     line-height: 1.5em;
     font-size: 18px;
+    font-family: Georgia, "Times New Roman", Times, serif;
   }
 `;
 
@@ -56,9 +56,9 @@ class ArticlePage extends Component {
           <>
             <ArticleContainer>
               <div>
-                <h1>{part.title}</h1>
-                <div>{part.author}</div>
-                <div>{part.date}</div>
+                <h1 data-testid="title">{part.title}</h1>
+                <div data-testid="author">{part.author}</div>
+                <div data-testid="pub-date">{part.date}</div>
               </div>
             </ArticleContainer>
             <ArticleImageContainer>
@@ -66,7 +66,7 @@ class ArticlePage extends Component {
                 <img src={Image} width="100%" alt="climber on Mt. Rainer" />
               </ArticleImage>
             </ArticleImageContainer>
-            <ArticleContainer>
+            <ArticleContainer data-testid="article-text">
               <p>{part.text}</p>
             </ArticleContainer>
           </>
