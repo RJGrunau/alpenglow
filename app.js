@@ -6,7 +6,7 @@ var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 var commentsRouter = require("./routes/comments");
-
+var articleRouter = require("./routes/article");
 var app = express();
 
 // view engine setup
@@ -21,6 +21,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/comments", commentsRouter);
+app.use("/article", articleRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

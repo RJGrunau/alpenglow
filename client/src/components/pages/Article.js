@@ -5,23 +5,23 @@ class Article extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      comments: []
+      comments: [],
+      article: []
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     axios.get("/comments").then(response => {
-      console.log(response);
+      // console.log(response);
       this.setState({ comments: response.data });
     });
-    // fetch("/comments")
-    //   .then(res => res.json())
-    //   .then(comments => this.setState({ comments }));
+    axios.get("/article").then(response => {
+      console.log(response);
+      this.setState({ article: response.data });
+    });
   }
 
   render() {
-    console.log(this.state.comments);
-
     return <div>hi</div>;
   }
 }
