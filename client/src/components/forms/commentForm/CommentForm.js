@@ -8,6 +8,13 @@ class CommentForm extends Component {
       commentText: ""
     };
   }
+
+  handleChange = event => {
+    this.setState({
+      [event.target.id]: event.target.value
+    });
+  };
+
   render() {
     return (
       <form>
@@ -25,7 +32,7 @@ class CommentForm extends Component {
         <div>
           <label htmlFor="comment">Comment:</label>
           <textarea
-            id="comment"
+            id="commentText"
             rows="10"
             columns="60"
             required
@@ -33,6 +40,9 @@ class CommentForm extends Component {
             value={this.state.commentText}
             onChange={this.handleChange}
           />
+        </div>
+        <div>
+          <button type="submit">Add your voice</button>
         </div>
       </form>
     );
