@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Article from "./components/pages/Article";
+import Article from "./components/pages/article/Article";
 import SiteHeader from "./components/common/header/header";
 
 function App() {

@@ -6,6 +6,7 @@ router.get("/", function(req, res, next) {
   res.json([
     {
       id: 1,
+      title: "On Suffering",
       author: "John Foley",
       date: "11-December-2019",
       text:
