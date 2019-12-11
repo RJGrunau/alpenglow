@@ -25,6 +25,7 @@ class Comments extends Component {
   //     .then(comments => this.setState({ comments }))
   //     .catch(console.error);
   // }
+
   render() {
     const { comments } = this.state;
     return (
