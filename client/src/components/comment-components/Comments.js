@@ -1,6 +1,11 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 import axios from "axios";
 import CommentList from "../comment-components/CommentList";
+
+const CommentContainer = styled.div`
+  width: 100%;
+`;
 
 class Comments extends Component {
   constructor(props) {
@@ -23,11 +28,11 @@ class Comments extends Component {
   render() {
     const { comments } = this.state;
     return (
-      <div>
+      <CommentContainer>
         {comments && comments.length ? (
           <CommentList comments={comments} />
         ) : null}
-      </div>
+      </CommentContainer>
     );
   }
 }
